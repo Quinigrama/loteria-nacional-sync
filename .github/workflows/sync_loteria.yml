@@ -2,9 +2,9 @@ name: Sincronizar Lotería Nacional SELAE
 
 on:
   schedule:
-    # Se ejecuta todos los jueves y sábados a las 22:00 UTC (después de los sorteos)
+    # Se ejecuta jueves y sábados a las 22:00 UTC
     - cron: '0 22 * * 4,6'
-  workflow_dispatch: # Permite ejecutarlo manualmente con un botón
+  workflow_dispatch:
 
 jobs:
   actualizar-hoja:
@@ -24,8 +24,10 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Generar archivo de credenciales
+        env:
+          GCP_KEY: ${{ secrets.GCP_SA_KEY }}
         run: |
-          echo '${{ secrets.GCP_SA_KEY }}' > credenciales.json
+          echo "$GCP_KEY" > credenciales.json
 
       - name: Ejecutar script de sincronización
         env:
