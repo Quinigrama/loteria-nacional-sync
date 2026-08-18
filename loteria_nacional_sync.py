@@ -33,8 +33,10 @@ from google.oauth2.service_account import Credentials
 # ============================================================
 # CONFIGURACIÓN — edita estos valores
 # ============================================================
-CREDENTIALS_FILE = "gen-lang-client-0434997779-37d9dd4b06e8.json"   # archivo JSON de la cuenta de servicio
-SPREADSHEET_ID = "1pcp0YOiIOofaDyPopOuegVH8syaCNQ4OIyxXRtBC4aA"
+
+CREDENTIALS_FILE = os.getenv("CREDENTIALS_FILE", "credenciales.json") # archivo JSON de la cuenta de servicio
+SPREADSHEET_ID = os.getenv("SPREADSHEET_ID", "1pcp0YOiIOofaDyPopOuegVH8syaCNQ4OIyxXRtBC4aA")
+
 WORKSHEET_NAME = "Hoja 1"                # nombre de la pestaña dentro del Sheet
 
 API_BASE = "https://www.loteriasyapuestas.es/servicios/buscadorSorteos"
