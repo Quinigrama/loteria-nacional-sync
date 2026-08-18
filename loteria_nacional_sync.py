@@ -33,7 +33,7 @@ from google.oauth2.service_account import Credentials
 # ============================================================
 # CONFIGURACIÓN — edita estos valores
 # ============================================================
-
+import os
 CREDENTIALS_FILE = os.getenv("CREDENTIALS_FILE", "credenciales.json") # archivo JSON de la cuenta de servicio
 SPREADSHEET_ID = os.getenv("SPREADSHEET_ID", "1pcp0YOiIOofaDyPopOuegVH8syaCNQ4OIyxXRtBC4aA")
 
